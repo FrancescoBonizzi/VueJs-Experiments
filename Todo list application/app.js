@@ -24,7 +24,7 @@ var todoListApp = new Vue({
 		
 		addTodo: function() {
 			
-			if (this.newTodoText.trim() == "")
+			if (this.newTodoText.trim() === "")
 				return;
 			
 			this.todoItems.push({ Id: GetFreeItemIndex(), Text: this.newTodoText, IsDone: false});
@@ -33,7 +33,7 @@ var todoListApp = new Vue({
 		},
 		
 		removeTodo: function(todo) {
-			this.todoItems.splice(this.todoItems.indexOf(todo), 1)
+			this.todoItems.splice(this.todoItems.indexOf(todo), 1);
 		}
 	}
 });
