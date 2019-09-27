@@ -7,4 +7,4 @@ This repository contains some experiments with Vue Js framework
 
 An interactive to-do list with style and animations: add a todo item, set completed, remove it. 
 
-![] (Gifs/todo.gif)
+![](Gifs/todo.gif)
