@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue.js in action</title>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link href="style.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<header>
+		<h1>Things to do</h1>
+	</header>
+	
+	<div id="app-todolist">
+	
+		<div id="commands">
+			<input type="text" placeholder="Write something..." v-model="newTodoText" v-on:keyup.enter="addTodo()" /> 
+			<a href="" v-on:click="addTodo()" onclick="return false;" title="Add a new item">+</a>
+		</div>
+		
+		<div id="main-content">
+
+			<transition-group tag="ul" name="list-animation">
+				<li v-for="todo in todoItems" v-bind:key="todo.Id" class="todo-item todo-item-animated">
+				
+					<label class="todo-check">
+						<input type="checkbox" v-model="todo.IsDone" v-on:click="move(todo)" />
+						<span class="checkmark"></span>
+					</label>
+					
+					<span class="todo-text" v-bind:class="{ completed: todo.IsDone }">{{ todo.Text }}</span>
+					
+					<a href="" v-on:click="removeTodo(todo)" onclick="return false;" title="Remove this item">x</a>
+										
+				</li>
+			</transition-group>
+
+		</div>
+
+	</div>
+		
+	<script src="app.js"></script>
+
+</body>
+
+</html>

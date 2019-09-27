@@ -1,0 +1,170 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+body {
+	display: grid;
+    grid-template-rows: 150px 1fr;
+    background-color: #202124;
+	font-family: 'Ubuntu Mono', monospace;
+}
+
+header {
+	display: grid;
+	border-bottom: 1px solid #5f6368;
+	color: white;
+}
+
+header h1 {
+	place-self: center;
+}
+
+#app-todolist {
+	place-self: center;	
+}
+
+#commands {
+	place-self: center;
+	display: grid;
+    grid-template-columns: 1fr auto;
+	padding: 10px;
+	margin-top: 30px;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.6), 0 2px 6px 2px rgba(0,0,0,0.302);
+}
+
+#commands input {
+	border: none;
+	background: #2d2e30;
+	color: white;
+	padding-left: 5px;
+	font-size: 18px;
+}
+
+a {
+	color: #5f6368;
+	text-decoration: none;
+	padding: 2px;
+	margin-left: 5px;
+	font-weight: bold;
+	font-size: 22px;
+	transition: color 0.5s ease;
+}
+
+a:active {
+	color: #5f6368;
+}
+
+a:hover {
+	color: white;
+}
+
+#main-content {
+	place-self: center;
+	margin-top: 30px;
+}
+
+.todo-item, #commands {
+	background: #2d2e30;
+	width: 450px;
+	border-radius: 8px;
+	border: 1px solid #5f6368;
+	align-items: center;
+}
+
+.todo-item {
+	list-style: none;
+	color: white;
+	padding: 10px 10px;
+	margin-bottom: 10px;
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+}
+
+.todo-text span {
+	overflow-wrap: break-word;
+}
+
+.completed {
+	text-decoration: line-through;
+	color: #5f6368;
+	transition: color 0.4s ease;
+}
+
+.todo-check {
+	margin-right: 10px;
+	place-self: center;
+	display: block;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	cursor: pointer;
+}
+
+.todo-check input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.checkmark {
+	display: block;
+	height: 18px;
+	width: 18px;
+	background-color: transparent;
+	border: 2px solid #5f6368;
+	border-radius: 3px;
+	transition: all 0.5s ease;
+}
+
+.todo-check:hover, .checkmark:hover, .checkmark:hover:after {
+	color: white;
+	border-color: white !important;
+	transition: all 0.5s ease;
+}
+
+.checkmark:after {
+	content: "";
+	position: relative;
+	display: none;
+}
+
+.todo-check input:checked ~ .checkmark:after {
+	display: block;
+}
+
+.todo-check .checkmark:after {
+	left: 5px;
+	top: 1px;
+	width: 5px;
+	height: 10px;
+	border: solid #5f6368;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	transition: all 0.5s ease;
+}
+
+.todo-item-animated {
+	transition: all 0.5s;
+}
+
+.list-animation-enter, .list-animation-leave-to {
+	opacity: 0;
+	transform: translateY(30px);
+}
+
+.list-animation-leave-active {
+	position: absolute;
+}
