@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue.js in action</title>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<header>
+		<h1>Photo finder</h1>
+	</header>
+	
+	<div id="app-instasearch">
+	
+		<div class="input-container">
+			<input type="text" placeholder="Type a name" v-model="authorNameSearchString" />
+		</div>
+		
+		<transition-group tag="ul" name="list-animation">
+			
+			<li class="photo photo-animated" v-for="photo in filteredPhotoFeed" v-bind:key="photo.id">
+				<img v-bind:src="photo.download_url" />
+				<span class="author">{{ photo.author }}</span>
+			</li>
+			
+		</transition-group>
+	
+	</div>
+	
+	<script src="app.js"></script>
+	
+</body>
+
+</html>
