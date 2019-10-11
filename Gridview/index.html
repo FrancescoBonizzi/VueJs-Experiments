@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue.js in action</title>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<header>
+		<h1>Gridview - Listview</h1>
+	</header>
+	
+	<div id="app-gridview">
+	
+		<button class="button" v-on:click="switchView()"><span>{{ buttonText }}</span></button>
+	
+		<div v-bind:class="[ isGridView ? 'grid-wrapper' : 'list-wrapper' ]">
+		
+			<div class="grid-row" v-if="isGridView">
+				<div class="grid-header" v-for="name in gridData.columns">{{ name }}</div>
+			</div>
+			
+			<div v-bind:class="[ isGridView ? 'grid-row' : 'list-row' ]" v-for="row in gridData.data">
+				<div v-bind:class="[ isGridView ? '' : 'list-row-item' ]" v-for="name in gridData.columns">
+					<div class="list-property-name" v-if="!isGridView">{{ name }}</div>
+					<div>{{ row[name] }}</div>
+				</div>
+			</div>
+		
+		</div>
+		
+	</div>
+	
+	<script src="app.js"></script>
+	
+</body>

@@ -1,0 +1,144 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+html {
+    overflow-y:scroll;
+}
+
+body {
+	display: grid;
+    grid-template-rows: 120px 1fr;
+	font-family: 'Lato', sans-serif;
+	margin-bottom: 10px;
+	background: #f6f6f6;
+}
+
+header {
+	display: grid;
+	color: black;
+	box-shadow: 0 0 1px rgba(0,0,0,0.25);
+	background: white;
+}
+
+header h1 {
+	place-self: center;
+	font-size: 42px;
+	font-weight: lighter;
+}
+
+#app-gridview {
+	place-self: center;	
+	margin-top: 30px;
+	display: grid;
+	justify-items: center;
+}
+
+.grid-wrapper {
+	display: table;
+	border: 4px solid #336699;
+	border-radius: 6px;
+}
+
+.grid-header {
+	font-weight: bold;
+	background: #336699;
+	color: white;
+	border-bottom: 4px solid #f6f6f6;
+}
+
+.grid-row {
+	display: table-row;
+}
+
+.grid-row > div {
+	display: table-cell;
+	padding: 10px 20px;
+}
+
+.grid-wrapper > div:nth-child(even) {
+	background: #f6f6f6;
+	transition: all ease 0.4s;
+}
+
+.grid-wrapper > div:nth-child(odd) {
+	background: #fafafa;
+	transition: all ease 0.4s;
+}
+
+.grid-wrapper > div:hover {
+	background: #e8f4ff;
+	transition: all ease 0.4s;
+}
+
+.list-wrapper {
+	
+}
+
+.list-row {
+	padding: 10px;
+	margin: 10px;
+	background: white;
+	border-radius: 6px;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+}
+
+.list-row-item {
+	display: grid;
+	grid-template-columns: 150px 1fr;
+	padding: 4px;
+}
+
+.list-property-name {
+	font-weight: bold;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 6px;
+  background-color: #0095ff;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 230px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0px 0px 25px 0px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
