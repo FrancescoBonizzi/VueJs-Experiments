@@ -31,7 +31,7 @@ var booksData = {
     ]
 };
 
-var instasearchApp = new Vue({
+var gridviewApp = new Vue({
 	
 	el: '#app-gridview',
 	
