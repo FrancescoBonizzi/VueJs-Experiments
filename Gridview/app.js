@@ -15,14 +15,32 @@ var cartData = {
     ]
 };
 
+var booksData = {
+    columns: [
+        "Id",
+        "Name",
+        "Author",
+        "Theme",
+        "Rating"
+    ],
+    data: [
+        { Id: 1, Name: "The look of love", Author: "George Blue", Theme: "Drama", Rating: "*****", ImagePath: "images/a.jpg" },
+        { Id: 2, Name: "20 vegetarian dishes", Author: "Francesco Bonizzi", Theme: "Cooking", Rating: "****", ImagePath: "images/b.jpg" },
+        { Id: 3, Name: "How to be happy", Author: "Asdrubale Anselmi", Theme: "Self help", Rating: "*", ImagePath: "images/c.jpg" },
+        { Id: 4, Name: "The last bee", Author: "John Dorian", Theme: "Nature", Rating: "****", ImagePath: "images/d.jpg" }
+    ]
+};
+
 var instasearchApp = new Vue({
 	
 	el: '#app-gridview',
 	
 	data: {
 		gridData: cartData,
-		buttonText: "Switch to ListView",
-		isGridView: true
+        buttonSwitchViewText: "Switch to ListView",
+        buttonSwitchDataText: "Switch to books data",
+        isGridView: true,
+        isBookData: false
 	},
 	
 	methods: {
@@ -30,15 +48,28 @@ var instasearchApp = new Vue({
 		switchView: function() {
 			
 			if (this.isGridView) {
-				this.buttonText = "Switch to GridView";
+                this.buttonSwitchViewText = "Switch to GridView";
 			}
 			else {
-				this.buttonText = "Switch to ListView";
+                this.buttonSwitchViewText = "Switch to ListView";
 			}
 			
 			this.isGridView = !this.isGridView;
-			
-		}
+        },
+
+        switchData: function () {
+
+            if (this.isBookData) {
+                this.buttonSwitchDataText = "Switch to books data";
+                this.gridData = cartData;
+            }
+            else {
+                this.buttonSwitchDataText = "Switch to shop data";
+                this.gridData = booksData;
+            }
+
+            this.isBookData = !this.isBookData;
+        }
 	
 	}
 	

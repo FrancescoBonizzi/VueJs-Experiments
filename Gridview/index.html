@@ -22,7 +22,10 @@
 
     <div id="app-gridview">
 
-        <button class="button" v-on:click="switchView()"><span>{{ buttonText }}</span></button>
+        <div>
+            <button class="button" v-on:click="switchView()"><span>{{ buttonSwitchViewText }}</span></button>
+            <button class="button" v-on:click="switchData()"><span>{{ buttonSwitchDataText }}</span></button>
+        </div>
 
         <div v-bind:class="[ isGridView ? 'grid-wrapper' : 'list-wrapper' ]">
 
