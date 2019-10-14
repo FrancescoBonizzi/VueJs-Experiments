@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -8,39 +8,50 @@
     <title>Vue.js in action</title>
 
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="style.css" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-	<header>
-		<h1>Gridview - Listview</h1>
-	</header>
-	
-	<div id="app-gridview">
-	
-		<button class="button" v-on:click="switchView()"><span>{{ buttonText }}</span></button>
-	
-		<div v-bind:class="[ isGridView ? 'grid-wrapper' : 'list-wrapper' ]">
-		
-			<div class="grid-row" v-if="isGridView">
-				<div class="grid-header" v-for="name in gridData.columns">{{ name }}</div>
-			</div>
-			
-			<div v-bind:class="[ isGridView ? 'grid-row' : 'list-row' ]" v-for="row in gridData.data">
-				<div v-bind:class="[ isGridView ? '' : 'list-row-item' ]" v-for="name in gridData.columns">
-					<div class="list-property-name" v-if="!isGridView">{{ name }}</div>
-					<div>{{ row[name] }}</div>
-				</div>
-			</div>
-		
-		</div>
-		
-	</div>
-	
-	<script src="app.js"></script>
-	
+    <header>
+        <h1>Gridview - Listview</h1>
+    </header>
+
+    <div id="app-gridview">
+
+        <button class="button" v-on:click="switchView()"><span>{{ buttonText }}</span></button>
+
+        <div v-bind:class="[ isGridView ? 'grid-wrapper' : 'list-wrapper' ]">
+
+            <div class="grid-row" v-if="isGridView">
+                <div class="grid-header" v-for="name in gridData.columns">{{ name }}</div>
+            </div>
+
+            <!-- GridView structure -->
+            <div v-if="isGridView" class="grid-row" v-for="row in gridData.data">
+                <div class="list-row-item" v-for="name in gridData.columns">
+                    <div>{{ row[name] }}</div>
+                </div>
+            </div>
+
+            <!-- ListView structure -->
+            <div v-if="!isGridView" class="list-row" v-for="row in gridData.data">
+                <img v-bind:src="row.ImagePath" class="list-image" />
+                <div class="list-property">
+                    <div class="list-row-item" v-for="name in gridData.columns">
+                        <div class="list-property-name">{{ name }}</div>
+                        <div>{{ row[name] }}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+
 </body>
