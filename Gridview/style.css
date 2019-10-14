@@ -98,9 +98,10 @@ header h1 {
 }
 
 .list-row-item {
-	display: grid;
-	grid-template-columns: 150px 1fr;
-	padding: 4px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    padding: 4px;
+    transition: all 0.5s;
 }
 
 .list-property {
@@ -110,7 +111,8 @@ header h1 {
 }
 
 .list-property-name {
-	font-weight: bold;
+    font-weight: bold;
+    transition: all 0.5s;
 }
 
 .list-image {
@@ -157,13 +159,4 @@ header h1 {
 .button:hover span:after {
   opacity: 1;
   right: 0;
-}
-
-.list-animation-enter, .list-animation-leave-to {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.list-animation-leave-active {
-    position: absolute;
 }
