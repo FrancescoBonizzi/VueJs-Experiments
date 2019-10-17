@@ -18,3 +18,11 @@ An interactive to-do list with style and animations: add a todo item, set comple
 [The article with step-by-step tutorial](https://medium.com/better-programming/instant-search-with-vue-js-and-axios-5b78a3a59f01)
 
 ![The application flow](Gifs/instasearch.gif)
+
+&nbsp;
+
+## Switchable GridView ListView
+
+[The article with step-by-step tutorial](https://medium.com/better-programming/switching-between-grid-view-and-list-view-with-vue-js-90fcd578bbdf)
+
+![The application flow](Gifs/gridview.gif)
