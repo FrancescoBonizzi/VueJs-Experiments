@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue.js in action</title>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet" />
+
+</head>
+
+<body>
+
+	<header>
+        <h1>Sudoku</h1>
+	</header>
+	
+	<div id="app-sudoku">
+	
+        <button class="button" v-on:click="initializeGame()"><span>{{ initializeGameText }}</span></button>
+
+        <div class="grid-sudoku">
+
+            <div v-for="row in sudokuMatrix" class="grid-row">
+                <div v-for="cell in row" class="grid-cell">
+                    <input type="text" v-model="cell" class="grid-cell-editor" />
+                </div>
+            </div>
+
+        </div>
+
+	</div>
+		
+	<script src="app.js"></script>
+
+</body>
+
+</html>

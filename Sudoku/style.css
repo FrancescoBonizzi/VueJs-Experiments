@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    background-color: #ff5252;
+    font-family: 'Dosis', sans-serif;
+}
+
+header {
+    display: grid;
+    color: white;
+}
+
+    header h1 {
+        place-self: center;
+    }
+
+#app-sudoku {
+    place-self: center;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-items: center;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    width: 230px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0px 0px 25px 0px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+}
+
+    .button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    .button:hover span {
+        padding-right: 25px;
+    }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+.grid-sudoku {
+    display: table;
+    background: white;
+}
+
+.grid-row {
+    display: table-row;
+}
+
+.grid-cell {
+    display: table-cell;
+    padding: 10px;
+    border: 1px solid gray;
+}
+
+.grid-cell-editor {
+    border: none;
+    width: 20px;
+    height: 20px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
