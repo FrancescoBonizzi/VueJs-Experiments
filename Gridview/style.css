@@ -160,12 +160,3 @@ header h1 {
   opacity: 1;
   right: 0;
 }
-
-.list-animation-enter, .list-animation-leave-to {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.list-animation-leave-active {
-    position: absolute;
-}
