@@ -98,4 +98,14 @@ header {
     font-weight: bold;
     text-align: center;
     font-size: 18px;
+    transition: all ease 1.0s;
+}
+
+.list-animation-enter, .list-animation-leave-to {
+    opacity: 0;
+    transform: translateY(10px) translateX(10px) rotate(200deg) scale(0.5);
+}
+
+.list-animation-leave-active {
+    position: absolute;
 }
