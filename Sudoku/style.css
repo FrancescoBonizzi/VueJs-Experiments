@@ -78,11 +78,16 @@ header {
 .grid-sudoku {
     display: table;
     background: white;
+    border: 3px solid black;
 }
 
-.grid-row {
-    display: table-row;
-}
+    .grid-sudoku > div:nth-child(3), .grid-sudoku > div:nth-child(6) {
+        border-bottom: 3px solid black;
+    }
+
+    .grid-row > div:nth-child(3), .grid-row > div:nth-child(6) {
+        border-right: 3px solid black;
+    }
 
 .grid-cell {
     display: table-cell;
