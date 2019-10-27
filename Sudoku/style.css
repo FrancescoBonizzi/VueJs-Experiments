@@ -33,6 +33,11 @@ header {
     justify-items: center;
 }
 
+.buttons-container {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
 .button {
     display: inline-block;
     border-radius: 6px;
@@ -106,6 +111,23 @@ header {
     transition: all ease 1.0s;
 }
 
+.answer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-image {
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+}
+
 .list-animation-enter, .list-animation-leave-to {
     opacity: 0;
     transform: translateY(20px) translateX(20px) rotate(200deg) scale(0.5);
@@ -113,4 +135,12 @@ header {
 
 .list-animation-leave-active {
     position: absolute;
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
 }

@@ -5,8 +5,11 @@ var sudokuApp = new Vue({
 	data: {
 
         sudokuMatrix: [],
-        initializeGameText: "Start!"
-
+        initializeGameText: "Start!",
+        evaluateGameText: "Verify!",
+        answerImage: "",
+        isGameStarted: false,
+        showAnswer: false
     },
 
     methods: {
@@ -27,7 +30,7 @@ var sudokuApp = new Vue({
 
             // Empty two random cells per row
             for (var i = 0; i < defaultSudokuMatrix.length; ++i) {
-                for (var k = 0; k < 2; ++k) {
+                for (var k = 0; k < 1; ++k) {
                     var randomColumnIndex = Math.floor(Math.random() * defaultSudokuMatrix.length);
                     defaultSudokuMatrix[i][randomColumnIndex] = "";
                 }
@@ -35,6 +38,34 @@ var sudokuApp = new Vue({
 
             this.sudokuMatrix = defaultSudokuMatrix;
             this.initializeGameText = "Restart";
+            this.isGameStarted = true;
+        },
+
+        evaluateGame() {
+
+            var copyOfSudokuMatrix = JSON.parse(JSON.stringify(this.sudokuMatrix)); 
+            var sudokuSolver = Sudoku.init(copyOfSudokuMatrix);
+            if (sudokuSolver.isValid()) {
+
+                this.answerImage = "success.gif";
+                this.showAnswer = true;
+
+                setTimeout(() => {
+                    this.showAnswer = false;
+                }, 2000);
+
+            }
+            else {
+
+                this.answerImage = "fail.gif";
+                this.showAnswer = true;
+
+                setTimeout(() => {
+                    this.showAnswer = false;
+                }, 2000);
+
+            }
+
         }
 
     }

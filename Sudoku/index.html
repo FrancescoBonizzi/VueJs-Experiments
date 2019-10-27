@@ -21,23 +21,38 @@
 
     <div id="app-sudoku">
 
-        <button class="button" v-on:click="initializeGame()"><span>{{ initializeGameText }}</span></button>
+        <div class="buttons-container">
+            <button class="button" v-on:click="initializeGame()"><span>{{ initializeGameText }}</span></button>
 
-        <div class="grid-sudoku">
-
-            <div v-for="row in sudokuMatrix" class="grid-row">
-                <div v-for="cell in row" class="grid-cell">
-                    <transition-group tag="div" name="list-animation">
-                        <input type="text" v-bind:key="cell" v-model="cell" class="grid-cell-editor" />
-                    </transition-group>
-                </div>
-            </div>
-
+            <transition name="fade">
+                <button class="button" v-on:click="evaluateGame()" v-if="isGameStarted"><span>{{ evaluateGameText }}</span></button>
+            </transition>
         </div>
+
+        <transition name="fade">
+            <div class="grid-sudoku" v-if="isGameStarted && !showAnswer">
+
+                <div v-for="row in sudokuMatrix" class="grid-row">
+                    <div v-for="cell in row" class="grid-cell">
+                        <transition-group tag="div" name="list-animation">
+                            <input type="text" v-bind:key="cell" v-model="cell" class="grid-cell-editor" />
+                        </transition-group>
+                    </div>
+                </div>
+
+            </div>
+        </transition>
+
+        <transition name="fade">
+            <div v-if="showAnswer" class="answer">
+                <img v-bind:src="answerImage" class="answer-image" />
+            </div>
+        </transition>
 
     </div>
 
     <script src="app.js"></script>
+    <script src="sudoku.js"></script>
 
 </body>
 
