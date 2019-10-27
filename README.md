@@ -1,5 +1,5 @@
 # VueJs-Experiments
-This repository contains some experiments with Vue Js framework.
+This repository contains some experiments with Vue.js framework.
 
 &nbsp;
 
