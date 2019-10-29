@@ -35,7 +35,7 @@
                 <div v-for="row in sudokuMatrix" class="grid-row">
                     <div v-for="cell in row" class="grid-cell">
                         <transition-group tag="div" name="list-animation">
-                            <input type="text" v-bind:key="cell" v-model="cell" class="grid-cell-editor" />
+                            <input type="text" v-bind:key="cell.num" v-model="cell.num" class="grid-cell-editor" />
                         </transition-group>
                     </div>
                 </div>
