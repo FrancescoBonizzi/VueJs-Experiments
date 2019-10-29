@@ -49,9 +49,11 @@ var sudokuApp = new Vue({
 
                 this.answerImage = "success.gif";
                 this.showAnswer = true;
+                this.isGameStarted = false;
 
                 setTimeout(() => {
                     this.showAnswer = false;
+                    this.isGameStarted = true;
                 }, 2000);
 
             }
@@ -59,9 +61,11 @@ var sudokuApp = new Vue({
 
                 this.answerImage = "fail.gif";
                 this.showAnswer = true;
+                this.isGameStarted = false;
 
                 setTimeout(() => {
                     this.showAnswer = false;
+                    this.isGameStarted = true;
                 }, 2000);
 
             }
