@@ -29,8 +29,8 @@ var sudokuApp = new Vue({
             ];
 
             // Empty two random cells per row
-            for (var i = 0; i < 1; ++i) {
-                for (var k = 0; k < 1; ++k) {
+            for (var i = 0; i < defaultSudokuMatrix.length; ++i) {
+                for (var k = 0; k < 2; ++k) {
                     var randomColumnIndex = Math.floor(Math.random() * defaultSudokuMatrix.length);
                     defaultSudokuMatrix[i][randomColumnIndex].num = "";
                 }
