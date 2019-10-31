@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue.js in action</title>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <link href="style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Visual sorting</h1>
+    </header>
+
+    <div id="app-sorting">
+
+        <div class="buttons-container">
+            <button class="button" v-on:click="shuffle()"><span>{{ shuffleButtonText }}</span></button>
+        </div>
+
+        <transition-group tag="div" name="list-animation" class="array-to-be-sorted">
+            <div v-for="num in arrayToBeSorted" v-bind:key="num" class="list-animation-item list-item">
+                {{ num }}
+            </div>
+        </transition-group>
+
+    </div>
+
+    <script src="sorting.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>

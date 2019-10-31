@@ -40,5 +40,3 @@ var instasearchApp = new Vue({
 	 }
 	
 });
-
-// Ci posso mettere un finally loading false ecc
