@@ -21,13 +21,18 @@
 
     <div id="app-sorting">
 
-        <div class="buttons-container">
-            <button class="button" v-on:click="shuffle()"><span>{{ shuffleButtonText }}</span></button>
+        <div>
+            <transition name="fade" v-if="!isManipulatingArray">
+                <div class="buttons-container">
+                    <button class="button" v-on:click="shuffle()"><span>{{ shuffleButtonText }}</span></button>
+                    <button class="button" v-for="b in sortAlgorithms" v-on:click="sort(b)">{{ b.name }}</button>
+                </div>
+            </transition>
         </div>
 
         <transition-group tag="div" name="list-animation" class="array-to-be-sorted">
-            <div v-for="num in arrayToBeSorted" v-bind:key="num" class="list-animation-item list-item">
-                {{ num }}
+            <div v-for="num in arrayToBeSorted" v-bind:key="num" v-bind:class="[ num % 2 == 0 ? 'even' : 'odd', 'list-animation-item', 'list-item' ]">
+                <span>{{ num }}</span>
             </div>
         </transition-group>
 

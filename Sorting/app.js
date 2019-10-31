@@ -4,23 +4,29 @@ var sortingApp = new Vue({
 
     data: {
 
-        arrayToBeSorted: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ],
+        arrayToBeSorted: [1, 2, 3, 4, 5, 6, 7, 8],
+        isManipulatingArray: false,
+
         shuffleButtonText: "Shuffle!",
+
         sortAlgorithms: [
-            { name: "BubbleSort", fn: bubbleSort }
+            { name: "Bubble sort", fn: bubbleSort },
+            { name: "Selection sort", fn: selectionSort },
+            { name: "Insertion sort", fn: insertionSort }
         ]
 
     },
 
     methods: {
 
-        shuffle: function() {
-            this.arrayToBeSorted = shuffle(this.arrayToBeSorted);
+        shuffle: function () {
+            this.isManipulatingArray = true;
+            shuffle(this.arrayToBeSorted).then(() => this.isManipulatingArray = false);
         },
 
-        sort: function () {
-        /* TODO Prendi parametro che indica quale array è sorting */
-            /* Fai un array di bottoni per ogni algoritmo */
+        sort: function (sortAlgorithm) {
+            this.isManipulatingArray = true;
+            sortAlgorithm.fn(this.arrayToBeSorted).then(() => this.isManipulatingArray = false);
         }
 
     }

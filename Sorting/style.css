@@ -16,8 +16,8 @@ html {
 
 body {
     display: grid;
-    grid-template-rows: 150px 1fr;
-    background-color: #f5f5f5;
+    grid-template-rows: 80px 1fr;
+    background-color: #fdef78;
     font-family: 'Roboto Slab', serif;
     margin-bottom: 10px;
 }
@@ -25,7 +25,7 @@ body {
 header {
     display: grid;
     color: white;
-    background: #6D25BC;
+    background: #2f2e2a;
 }
 
     header h1 {
@@ -36,45 +36,85 @@ header {
 #app-sorting {
     place-self: center;
     margin-top: 30px;
-    width: 600px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-rows: 60px 1fr;
+    justify-items: center;
+}
+
+.buttons-container {
+    height: 60px;
 }
 
 .array-to-be-sorted {
     margin: 50px;
     display: grid;
-    grid-template-rows: 30px 30px 30px 30px;
-    grid-template-columns: 30px 30px 30px 30px;
-    grid-gap: 30px;
+    grid-template-columns: repeat(8, auto);
     justify-items: center;
     align-items: center;
 }
 
+.even {
+    background-color: #f96167;
+}
+
+.odd {
+    background-color: #2f2e2a;
+}
+
 .list-item {
-    display: block;
+    display: grid;
+    justify-items: center;
+    align-items: center;
     padding: 15px;
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     border-radius: 100px;
-    background-color: mediumseagreen;
     color: white;
+    margin: 10px;
+    font-size: 30px;
     font-family: 'Roboto Slab', serif;
     font-weight: bold;
     text-align: center;
 }
 
 .list-animation-item {
-    transition: all 1s;
-    margin-right: 10px;
+    transition: all ease 0.5s;
 }
 
-.list-animation-enter, .list-animation-leave-to
-/* .list-complete-leave-active below version 2.1.8 */ {
+.fade-enter-active, .fade-leave-active {
+    transition: all ease 1s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
-    transform: translateY(30px) translateX(30px);
+    transform: translateY(-30px) scale(0.9);
 }
 
-.list-animation-leave-active {
-    position: absolute;
+.button {
+    box-shadow: 0px 1px 0px 0px #f0f7fa;
+    background-color: #33bdef;
+    border-radius: 6px;
+    border: 1px solid #057fd0;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px -1px 0px #5b6178;
+    margin: 10px;
 }
 
-/* Fai palline colorate ogni n-th child... Dovrei mettere che i numeri pari sono di un colore e dispari di un altro, così ordinati sono uno si e uno no */
+    .button:hover {
+        background-color: #019ad2;
+    }
+
+    .button:active {
+        position: relative;
+        top: 1px;
+    }
+
