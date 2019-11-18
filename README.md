@@ -40,3 +40,11 @@ How to code this simple game from A to Z
 [The article with step-by-step tutorial](https://medium.com/better-programming/how-to-build-sudoku-in-vue-js-f97509b523ed)
 
 ![The application flow](Gifs/sudoku.gif)
+
+## Visual representation of sorting Algorithms
+
+A little guide to animations with Vue.js
+
+[The article with step-by-step tutorial](https://medium.com/better-programming/a-visual-representation-of-sorting-algorithms-with-vue-js-f79b903fabbe)
+
+![The application flow](Gifs/sorting.gif)
